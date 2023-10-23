@@ -87,6 +87,7 @@ export default class BlockMenuView {
   public update(props: SuggestionProps) {
     // pos
     this.popup.setProps({
+      // @ts-ignore
       getReferenceClientRect: props.clientRect,
     });
     // items

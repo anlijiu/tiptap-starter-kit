@@ -69,12 +69,13 @@ export const Diagram = Node.create<DiagramOptions>({
 
       dom.append(innerEditor.dom);
 
-      const render = (code: string) => {
+      const render = async (code: string) => {
         try {
           if (!code) {
             rendered.innerHTML = this.options.dictionary.empty;
           } else {
-            rendered.innerHTML = mermaid.render(rendered.id, code);
+            const { svg } = await mermaid.render(rendered.id, code)
+            rendered.innerHTML = svg;
           }
         } catch (e) {
           const error = document.querySelector(`#d${rendered.id}`);

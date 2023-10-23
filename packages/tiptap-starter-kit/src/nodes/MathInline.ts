@@ -137,7 +137,7 @@ export const MathInline = Node.create<MathInlineOptions>({
             return null;
           }
           const value = match[1];
-          return state.tr.replaceRangeWith(
+          state.tr.replaceRangeWith(
             from,
             to,
             this.type.create(

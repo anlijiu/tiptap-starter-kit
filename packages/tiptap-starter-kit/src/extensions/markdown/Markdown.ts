@@ -8,6 +8,7 @@ import { remark } from "remark";
 import remarkGfm from "remark-gfm";
 import remarkDirective from "remark-directive";
 
+
 export type MarkdownStorage<T extends MarkType | NodeType> = {
   remark?: (processor: Processor) => Processor;
   parser?: {
@@ -41,6 +42,7 @@ export const Markdown = Extension.create({
       .map(([, value]) => value)
       .reduce(
         (processor, storage) => storage.remark(processor),
+        // @ts-ignore
         remark().use(remarkGfm).use(remarkDirective) as Processor
       );
     // parser

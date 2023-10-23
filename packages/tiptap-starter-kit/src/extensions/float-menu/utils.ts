@@ -216,15 +216,19 @@ export const editorView = (
               if (dispatch) {
                 const { state } = outerView;
                 const { to } = state.selection;
-                const tr = state.tr.replaceWith(
-                  to,
-                  to,
-                  state.schema.nodes.paragraph.createAndFill()
-                );
-                outerView.dispatch(
-                  tr.setSelection(TextSelection.create(tr.doc, to))
-                );
-                outerView.focus();
+                const node = state.schema.nodes.paragraph.createAndFill();
+                if(node) {
+
+                  const tr = state.tr.replaceWith(
+                    to,
+                    to,
+                    node
+                  );
+                  outerView.dispatch(
+                    tr.setSelection(TextSelection.create(tr.doc, to))
+                  );
+                  outerView.focus();
+                }
               }
               return true;
             },

@@ -42,7 +42,7 @@ export const Emoji = Node.create<EmojiOptions>({
   },
   addStorage() {
     return {
-      remark: (processor: Processor) => processor.use(remarkGemoji),
+      remark: (processor: Processor) => processor.use(remarkGemoji) as any,
       parser: {
         match: (node) => node.type === "emoji",
         runner: (state, node, type) => {
@@ -154,7 +154,6 @@ export const Emoji = Node.create<EmojiOptions>({
               this.type.create(undefined, schema.text(match[1]))
             );
           }
-          return tr;
         },
       }),
     ];

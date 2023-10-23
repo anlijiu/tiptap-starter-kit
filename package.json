@@ -8,9 +8,9 @@
     "not IE 11"
   ],
   "scripts": {
-    "dev": "yarn workspace @syfxlin/demo dev",
-    "build": "yarn workspace @syfxlin/tiptap-starter-kit build",
-    "publish": "yarn workspace @syfxlin/tiptap-starter-kit publish --registry https://registry.npmjs.org/",
+    "dev": "yarn workspace @an/demo dev",
+    "build": "yarn workspace @an/tiptap-starter-kit build",
+    "publish": "yarn workspace @an/tiptap-starter-kit publish --registry https://registry.npmjs.org/",
     "lint": "eslint --ext .jsx,.js,.ts,.tsx --quiet packages/tiptap-starter-kit/src/",
     "clean": "rm -rf ./packages/*/dist"
   },
@@ -21,22 +21,23 @@
     "@babel/plugin-proposal-optional-chaining": "^7.16.0",
     "@babel/preset-env": "^7.16.0",
     "@babel/preset-react": "^7.16.0",
-    "@rollup/plugin-babel": "^5.3.0",
-    "@rollup/plugin-commonjs": "^21.0.1",
-    "@rollup/plugin-node-resolve": "^13.0.6",
-    "minimist": "^1.2.5",
-    "rollup": "^2.59.0",
+    "@rollup/plugin-babel": "^6.0.4",
+    "@rollup/plugin-commonjs": "^25.0.7",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "minimist": "^1.2.8",
+    "rollup": "^4.1.4",
     "rollup-plugin-auto-external": "^2.0.0",
     "rollup-plugin-sourcemaps": "^0.6.3",
-    "rollup-plugin-typescript2": "^0.30.0",
-    "typescript": "^4.4.4"
+    "rollup-plugin-typescript2": "^0.36.0",
+    "tslib": "^2.6.2",
+    "typescript": "^5.2.2"
   },
   "dependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.3.1",
-    "@typescript-eslint/parser": "^5.3.1",
-    "eslint": "^8.2.0",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-prettier": "^4.0.0",
-    "prettier": "^2.4.1"
+    "@typescript-eslint/eslint-plugin": "^6.8.0",
+    "@typescript-eslint/parser": "^6.8.0",
+    "eslint": "^8.52.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.1",
+    "prettier": "^3.0.3"
   }
 }

@@ -15,8 +15,9 @@
     "rootDir": ".",
     "allowJs": true,
     "checkJs": false,
+    "outDir": "lib",
     "paths": {
-      "@syfxlin/*": ["packages/*/dist", "packages/*/src"]
+      "@an/*": ["packages/*/dist", "packages/*/src"]
     },
     "lib": ["ESNext", "DOM", "DOM.Iterable", "ScriptHost"]
   },

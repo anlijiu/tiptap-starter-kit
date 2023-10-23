@@ -10,6 +10,7 @@ export default class Stack {
 
   constructor(editor: Editor) {
     this.editor = editor;
+    // @ts-ignore
     this.marks = Mark.none;
     this.nodes = [];
   }
@@ -48,12 +49,14 @@ export default class Stack {
     if (isIn) {
       return;
     }
+    // @ts-ignore
     this.marks = mark.addToSet(this.marks);
     this.openNode(node);
   }
 
   public closeMark(mark: Mark) {
     if (!mark.isInSet(this.marks)) return null;
+    // @ts-ignore
     this.marks = mark.type.removeFromSet(this.marks);
     return this.closeNode();
   }

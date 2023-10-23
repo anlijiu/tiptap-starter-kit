@@ -9,7 +9,7 @@ export default class Stack {
 
   constructor(editor: Editor) {
     this.editor = editor;
-    this.marks = Mark.none;
+    this.marks = [];
     this.nodes = [];
   }
 
@@ -48,12 +48,12 @@ export default class Stack {
 
   public openMark(markType: MarkType, attrs?: Attrs) {
     const mark = markType.create(attrs);
-    this.marks = mark.addToSet(this.marks);
+    this.marks = [...mark.addToSet(this.marks)];
     return this;
   }
 
   public closeMark(markType: MarkType) {
-    this.marks = markType.removeFromSet(this.marks);
+    this.marks = [...markType.removeFromSet(this.marks)];
   }
 
   public openNode(nodeType: NodeType, attrs?: Attrs) {
@@ -74,7 +74,7 @@ export default class Stack {
   }
 
   public closeNode() {
-    this.marks = Mark.none;
+    this.marks = [];
     const info = this.nodes.pop();
     // @ts-ignore
     return this.addNode(info.type, info.attrs, info.content);

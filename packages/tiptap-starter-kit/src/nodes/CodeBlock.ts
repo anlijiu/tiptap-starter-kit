@@ -33,7 +33,7 @@ import typescript from "highlight.js/lib/languages/typescript";
 import vbnet from "highlight.js/lib/languages/vbnet";
 import xml from "highlight.js/lib/languages/xml";
 import yaml from "highlight.js/lib/languages/yaml";
-import lowlight from "lowlight/lib/core";
+import { createLowlight } from "lowlight";
 import { CodeBlockLowlight } from "@tiptap/extension-code-block-lowlight";
 import { css } from "@emotion/css";
 import { NodeMarkdownStorage } from "../extensions/markdown/Markdown";
@@ -82,8 +82,10 @@ const languages = {
   yml: yaml,
 };
 
+const lowlight = createLowlight();
+
 Object.entries(languages).forEach(([name, lib]) =>
-  lowlight.registerLanguage(name, lib)
+  lowlight.register(name, lib)
 );
 
 const preCss = css`

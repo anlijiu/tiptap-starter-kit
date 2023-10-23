@@ -12,21 +12,22 @@ export default defineConfig({
   input: "src/index.ts",
   output: [
     {
-      name: "@syfxlin/tiptap-starter-kit",
-      file: "dist/index.umd.js",
+      name: "@an/tiptap-starter-kit",
+      dir: "dist/umd",
       format: "umd",
       sourcemap: true,
     },
     {
-      name: "@syfxlin/tiptap-starter-kit",
-      file: "dist/index.cjs.js",
+      name: "@an/tiptap-starter-kit",
+      dir: "dist/cjs",
       format: "cjs",
       sourcemap: true,
       exports: "auto",
     },
     {
-      name: "@syfxlin/tiptap-starter-kit",
-      file: "dist/index.esm.js",
+      name: "@an/tiptap-starter-kit",
+      inlineDynamicImports: true,
+      dir: "dist/esm",
       format: "es",
       sourcemap: true,
     },
@@ -50,11 +51,16 @@ export default defineConfig({
         compilerOptions: {
           declaration: true,
           paths: {
-            "@syfxlin/*": ["packages/*/src"],
+            "@an/*": ["packages/*/src"],
           },
         },
         include: null,
       },
     }),
+  ],
+  external: [
+    "some-externally-required-library",
+    // fileURLToPath(new URL("src/some-local-file-that-should-not-be-bundled.js", import.meta.url)),
+    /node_modules/,
   ],
 });
