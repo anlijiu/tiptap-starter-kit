@@ -1,43 +1,119 @@
 {
-  "private": true,
-  "workspaces": [
-    "packages/*"
+  "name": "@syfxlin/tiptap-starter-kit",
+  "type": "module",
+  "version": "0.0.0-semantic-release",
+  "description": "The non-official starter kit of the Tiptap editor contains common extensions.",
+  "author": "syfxlin <i@ixk.me>",
+  "license": "MIT",
+  "homepage": "https://github.com/syfxlin/tiptap-starter-kit",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/syfxlin/tiptap-starter-kit"
+  },
+  "bugs": {
+    "url": "https://github.com/syfxlin/tiptap-starter-kit/issues"
+  },
+  "keywords": [
+    "tiptap",
+    "tiptap-extension"
   ],
-  "browserslist": [
-    "defaults",
-    "not IE 11"
+  "publishConfig": {
+    "access": "public"
+  },
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.mts",
+        "default": "./dist/index.mjs"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    }
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
   ],
   "scripts": {
-    "dev": "yarn workspace @an/demo dev",
-    "build": "yarn workspace @an/tiptap-starter-kit build",
-    "publish": "yarn workspace @an/tiptap-starter-kit publish --registry https://registry.npmjs.org/",
-    "lint": "eslint --ext .jsx,.js,.ts,.tsx --quiet packages/tiptap-starter-kit/src/",
-    "clean": "rm -rf ./packages/*/dist"
+    "dev": "vite",
+    "style": "lessc ./src/styles.less ./src/styles.css --autoprefix=\"defaults\"",
+    "build": "pnpm style && bunchee",
+    "watch": "pnpm style && bunchee --watch"
   },
-  "devDependencies": {
-    "@atomico/rollup-plugin-sizes": "^1.1.4",
-    "@babel/core": "^7.16.0",
-    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.16.0",
-    "@babel/plugin-proposal-optional-chaining": "^7.16.0",
-    "@babel/preset-env": "^7.16.0",
-    "@babel/preset-react": "^7.16.0",
-    "@rollup/plugin-babel": "^6.0.4",
-    "@rollup/plugin-commonjs": "^25.0.7",
-    "@rollup/plugin-node-resolve": "^15.2.3",
-    "minimist": "^1.2.8",
-    "rollup": "^4.1.4",
-    "rollup-plugin-auto-external": "^2.0.0",
-    "rollup-plugin-sourcemaps": "^0.6.3",
-    "rollup-plugin-typescript2": "^0.36.0",
-    "tslib": "^2.6.2",
-    "typescript": "^5.2.2"
+  "peerDependencies": {
+    "@tiptap/core": "^2.2.4",
+    "@tiptap/pm": "^2.2.4"
   },
   "dependencies": {
-    "@typescript-eslint/eslint-plugin": "^6.8.0",
-    "@typescript-eslint/parser": "^6.8.0",
-    "eslint": "^8.52.0",
-    "eslint-config-prettier": "^9.0.0",
-    "eslint-plugin-prettier": "^5.0.1",
-    "prettier": "^3.0.3"
+    "@tiptap/extension-blockquote": "^2.5.4",
+    "@tiptap/extension-bold": "^2.5.4",
+    "@tiptap/extension-bullet-list": "^2.5.4",
+    "@tiptap/extension-code": "^2.5.4",
+    "@tiptap/extension-code-block-lowlight": "^2.5.4",
+    "@tiptap/extension-document": "^2.5.4",
+    "@tiptap/extension-dropcursor": "^2.5.4",
+    "@tiptap/extension-gapcursor": "^2.5.4",
+    "@tiptap/extension-hard-break": "^2.5.4",
+    "@tiptap/extension-heading": "^2.5.4",
+    "@tiptap/extension-highlight": "^2.5.4",
+    "@tiptap/extension-history": "^2.5.4",
+    "@tiptap/extension-horizontal-rule": "^2.5.4",
+    "@tiptap/extension-image": "^2.5.4",
+    "@tiptap/extension-italic": "^2.5.4",
+    "@tiptap/extension-link": "^2.5.4",
+    "@tiptap/extension-list-item": "^2.5.4",
+    "@tiptap/extension-ordered-list": "^2.5.4",
+    "@tiptap/extension-paragraph": "^2.5.4",
+    "@tiptap/extension-strike": "^2.5.4",
+    "@tiptap/extension-subscript": "^2.5.4",
+    "@tiptap/extension-superscript": "^2.5.4",
+    "@tiptap/extension-table": "^2.5.4",
+    "@tiptap/extension-table-cell": "^2.5.4",
+    "@tiptap/extension-table-header": "^2.5.4",
+    "@tiptap/extension-table-row": "^2.5.4",
+    "@tiptap/extension-task-item": "^2.5.4",
+    "@tiptap/extension-task-list": "^2.5.4",
+    "@tiptap/extension-text": "^2.5.4",
+    "@tiptap/extension-underline": "^2.5.4",
+    "@tiptap/suggestion": "^2.5.4",
+    "gemoji": "^8.1.0",
+    "katex": "^0.16.11",
+    "lowlight": "^3.1.0",
+    "mdast-util-from-markdown": "^2.0.1",
+    "mdast-util-to-markdown": "^2.1.0",
+    "mermaid": "^10.9.1",
+    "plantuml-encoder": "^1.4.0",
+    "plyr": "^3.7.8",
+    "remark-directive": "^3.0.0",
+    "remark-gemoji": "^8.0.0",
+    "remark-gfm": "^4.0.0",
+    "remark-math": "^6.0.0",
+    "remark-parse": "^11.0.0",
+    "remark-stringify": "^11.0.0",
+    "smooth-scroll-into-view-if-needed": "^2.0.2",
+    "tippy.js": "^6.3.7",
+    "unified": "^11.0.5",
+    "unist-builder": "^4.0.0",
+    "unist-util-visit": "^5.0.0"
+  },
+  "devDependencies": {
+    "@syfxlin/eslint-config": "^1.0.8",
+    "@tiptap/core": "^2.5.4",
+    "@tiptap/pm": "^2.5.4",
+    "@types/katex": "^0.16.7",
+    "@types/mdast": "^4.0.4",
+    "@types/plantuml-encoder": "^1.4.2",
+    "@types/unist": "^3.0.2",
+    "bunchee": "^5.2.2",
+    "eslint": "^9.7.0",
+    "eslint-plugin-format": "^0.1.2",
+    "less": "^4.2.0",
+    "less-plugin-autoprefix": "^2.0.0",
+    "typescript": "^5.5.3",
+    "vite": "^5.3.4"
   }
 }

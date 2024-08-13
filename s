@@ -1,1 +1,1 @@
-yarn dev
+pnpm run dev
